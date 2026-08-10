@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #f8f6f0;
+  --surface: #141414;
+  --surface-elevated: #1c1c1c;
+  --border: #303030;
+  --muted: #a3a3a3;
+  --gold: #c6a15b;
+  --gold-light: #e8cf91;
+  --gold-dark: #8e6a2c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+select option {
+  background: var(--surface-elevated);
+  color: var(--foreground);
+}
+
+/* Windows renders native option menus separately from the select field. Keep
+   the search menu high-contrast instead of inheriting the field's light text. */
+.search-select option {
+  background-color: #ffffff !important;
+  color: #171717 !important;
+}
+
+.search-select option:disabled {
+  background-color: var(--surface-elevated) !important;
+  color: var(--foreground) !important;
+}
